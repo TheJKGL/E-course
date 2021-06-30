@@ -1,10 +1,9 @@
 package assignment2;
 
 /**
- * Created by Student on 22.02.2017.
+ * Created by Yevhenii Malakhov 30.06.2021.
  */
 public interface GlobalConstants {
-    // Constants
     int MIN_BARRIER = 0;
     int MAX_BARRIER = 100;
 }
