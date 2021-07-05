@@ -1,7 +1,3 @@
-import assignment2.Controller;
-import assignment2.GlobalConstants;
-import assignment2.Model;
-import assignment2.View;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -1,5 +1,3 @@
-package assignment2;
-
 /**
  * Created by Yevhenii Malakhov 30.06.2021.
  */

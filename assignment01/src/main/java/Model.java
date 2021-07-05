@@ -1,5 +1,3 @@
-package assignment1;
-
 public class Model {
     String firstWord;
     String secondWord;

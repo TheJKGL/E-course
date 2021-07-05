@@ -1,5 +1,3 @@
-package assignment1;
-
 public class View {
     public static final String ENTER_DATA = "Enter word: ";
     public static final String FIRST_WORD = "Hello";
