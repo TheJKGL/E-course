@@ -9,6 +9,9 @@ import java.io.InputStreamReader;
 
 import static controller.RegexConstant.*;
 
+/**
+ * Created by Yevhenii Malakhov 06.07.2021.
+ */
 public class Controller {
     private Model model;
     private View view;
@@ -39,6 +42,14 @@ public class Controller {
         return null;
     }
 
+    /**
+     * This method check data with the special regex,
+     * and return correct input data.
+     *
+     * @param regex   regex constant.
+     * @param message output message.
+     * @return correct data.
+     */
     public String checkInputData(String regex, String message) {
         view.printMessage(message);
         String enteredData = readInputData();
@@ -49,7 +60,7 @@ public class Controller {
         return enteredData;
     }
 
-    public void showResult(InputData inputData){
+    public void showResult(InputData inputData) {
         view.printMessage("Register information:");
         view.printMessage(inputData.getFirstName());
         view.printMessage(inputData.getSurname());

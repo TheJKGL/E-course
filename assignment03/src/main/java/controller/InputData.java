@@ -1,5 +1,8 @@
 package controller;
 
+/**
+ * Created by Yevhenii Malakhov 06.07.2021.
+ */
 public class InputData {
     private String firstName;
     private String surname;
