@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static controller.RegexConstant.*;
+import static view.TextConstant.*;
 
 /**
  * Created by Yevhenii Malakhov 06.07.2021.
@@ -23,10 +24,13 @@ public class Controller {
 
     public void processUser() {
         InputData inputData = new InputData();
-        String firstName = checkInputData(REGEX_NAME_LAT, View.NAME);
+        String regex = (String.valueOf(View.bundle.getLocale()).equals("ua"))
+                ? REGEX_NAME_UKR : REGEX_NAME_LAT;
+
+        String firstName = checkInputData(regex, NAME);
         inputData.setFirstName(firstName);
 
-        String surname = checkInputData(REGEX_NAME_LAT, View.SURNAME);
+        String surname = checkInputData(REGEX_LOGIN, LOGIN);
         inputData.setSurname(surname);
 
         showResult(inputData);
@@ -51,10 +55,10 @@ public class Controller {
      * @return correct data.
      */
     public String checkInputData(String regex, String message) {
-        view.printMessage(message);
+        view.printStringInput(message);
         String enteredData = readInputData();
         while (!enteredData.matches(regex)) {
-            view.printMessage(View.WRONG_INPUT + regex + " :");
+            view.printWrongInput(message);
             enteredData = readInputData();
         }
         return enteredData;
