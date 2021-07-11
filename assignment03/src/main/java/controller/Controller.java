@@ -1,6 +1,7 @@
 package controller;
 
 import model.Model;
+import model.entity.NotUniqueLoginException;
 import view.View;
 
 import java.io.BufferedReader;
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static controller.RegexConstant.*;
+import static model.entity.DBNoteBook.checkLogin;
 import static view.TextConstant.*;
 
 /**
@@ -30,8 +32,17 @@ public class Controller {
         String firstName = checkInputData(regex, NAME);
         inputData.setFirstName(firstName);
 
-        String surname = checkInputData(REGEX_LOGIN, LOGIN);
-        inputData.setSurname(surname);
+        String login = checkInputData(REGEX_LOGIN, LOGIN);
+        while (true) {
+            try {
+                inputData.setLogin(login);
+                break;
+            } catch (NotUniqueLoginException e) {
+                e.printStackTrace();
+                view.printMessage(e.getMessage() + " " + e.getLoginData());
+                login = checkInputData(REGEX_LOGIN, LOGIN);
+            }
+        }
 
         showResult(inputData);
     }
@@ -67,6 +78,6 @@ public class Controller {
     public void showResult(InputData inputData) {
         view.printMessage("Register information:");
         view.printMessage(inputData.getFirstName());
-        view.printMessage(inputData.getSurname());
+        view.printMessage(inputData.getLogin());
     }
 }
