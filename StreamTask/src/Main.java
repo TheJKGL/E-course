@@ -1,10 +1,9 @@
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {5,2,3,8,10,11,15,23,6};
+        int[] array = {2,6,3,8,10,11,15,5,23};
         IntSummaryStatistics summaryStatistics = Arrays.stream(array).summaryStatistics();
 
         //First way.====================================================================
@@ -23,7 +22,7 @@ public class Main {
 
         //Finding index of min value.====================================================
         int indexOfMin = IntStream
-                .range(0,array.length-1)
+                .range(0,array.length)
                 .reduce((i,j) -> array[i] > array[j] ? j:i)
                 .getAsInt();
         System.out.println("Index of min value: " + indexOfMin);
